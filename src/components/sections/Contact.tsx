@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button, Card, Container } from '../ui';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
@@ -15,35 +16,37 @@ const contactSchema = z.object({
   message: z.string().optional(),
 });
 
-const contactMethods = [
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+998 90 123 45 67',
-    href: 'tel:+998901234567',
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'info@studyitalypro.com',
-    href: 'mailto:info@studyitalypro.com',
-  },
-  {
-    icon: MapPin,
-    label: 'Office',
-    value: 'Tashkent, Uzbekistan',
-    href: null,
-  },
-];
-
-const educationLevels = [
-  { value: '', label: 'Select Education Level' },
-  { value: 'bachelor', label: "Bachelor's Degree" },
-  { value: 'master', label: "Master's Degree" },
-  { value: 'phd', label: 'PhD' },
-];
-
 export const Contact: React.FC = () => {
+  const { t } = useTranslation();
+
+  const contactMethods = [
+    {
+      icon: Phone,
+      label: t('contact.form.phone'),
+      value: t('contact.info.phone'),
+      href: 'tel:+998901234567',
+    },
+    {
+      icon: Mail,
+      label: t('contact.form.email'),
+      value: t('contact.info.email'),
+      href: 'mailto:info@studyitalypro.com',
+    },
+    {
+      icon: MapPin,
+      label: t('contact.office'),
+      value: t('contact.info.address'),
+      href: null,
+    },
+  ];
+
+  const educationLevels = [
+    { value: '', label: t('contact.education.select') },
+    { value: 'highSchool', label: t('contact.education.highSchool') },
+    { value: 'bachelor', label: t('contact.education.bachelor') },
+    { value: 'master', label: t('contact.education.master') },
+    { value: 'phd', label: t('contact.education.phd') },
+  ];
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -91,10 +94,10 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
-                  Thank You!
+                  {t('contact.form.success')}
                 </h2>
                 <p className="text-xl text-gray-600">
-                  We've received your consultation request. Our team will contact you within 24 hours to schedule your free consultation.
+                  {t('contact.form.success')}
                 </p>
                 <div className="bg-gray-50 rounded-xl p-6">
                   <h3 className="font-semibold text-gray-900 mb-2">
@@ -133,11 +136,11 @@ export const Contact: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Ready to Start Your{' '}
-            <span className="gradient-text">Journey?</span>
+            {t('contact.title')}{' '}
+            <span className="gradient-text">{t('contact.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Contact us today for a free consultation and take the first step towards your Italian education dream.
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -152,11 +155,10 @@ export const Contact: React.FC = () => {
           >
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Get in Touch
+                {t('contact.title')}
               </h3>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Our expert team is ready to guide you through every step of your journey to study in Italy.
-                Schedule your free consultation today and discover how we can help you achieve your academic dreams.
+                {t('contact.subtitle')}
               </p>
             </div>
 
@@ -199,25 +201,15 @@ export const Contact: React.FC = () => {
             {/* Why Choose Us */}
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
               <h4 className="font-bold text-gray-900 mb-4">
-                Why Choose Our Consultation?
+                {t('contact.consultation.title')}
               </h4>
               <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-secondary-500 mt-0.5 flex-shrink-0" />
-                  <span>100% free initial consultation</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-secondary-500 mt-0.5 flex-shrink-0" />
-                  <span>Expert guidance from certified consultants</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-secondary-500 mt-0.5 flex-shrink-0" />
-                  <span>Personalized study plan for your goals</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-secondary-500 mt-0.5 flex-shrink-0" />
-                  <span>No obligation or pressure to commit</span>
-                </li>
+                {(t('contact.consultation.benefits', { returnObjects: true }) as string[]).map((benefit, index) => (
+                  <li key={index} className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-secondary-500 mt-0.5 flex-shrink-0" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.div>
@@ -236,7 +228,7 @@ export const Contact: React.FC = () => {
                     Book Free Consultation
                   </h3>
                   <p className="text-gray-600">
-                    Fill out the form and we'll get back to you within 24 hours
+                    {t('contact.form.success')}
                   </p>
                 </div>
 
@@ -245,7 +237,7 @@ export const Contact: React.FC = () => {
                     <input
                       {...register('name')}
                       type="text"
-                      placeholder="Full Name *"
+                      placeholder={t('contact.form.placeholders.firstName')}
                       className={`w-full px-4 py-3 border-2 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                         errors.name ? 'border-red-300' : 'border-gray-200'
                       }`}
@@ -259,7 +251,7 @@ export const Contact: React.FC = () => {
                     <input
                       {...register('email')}
                       type="email"
-                      placeholder="Email Address *"
+                      placeholder={t('contact.form.placeholders.email')}
                       className={`w-full px-4 py-3 border-2 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                         errors.email ? 'border-red-300' : 'border-gray-200'
                       }`}
@@ -273,7 +265,7 @@ export const Contact: React.FC = () => {
                     <input
                       {...register('phone')}
                       type="tel"
-                      placeholder="Phone Number *"
+                      placeholder={t('contact.form.placeholders.phone')}
                       className={`w-full px-4 py-3 border-2 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                         errors.phone ? 'border-red-300' : 'border-gray-200'
                       }`}
@@ -305,7 +297,7 @@ export const Contact: React.FC = () => {
                     <textarea
                       {...register('message')}
                       rows={4}
-                      placeholder="Tell us about your goals and preferences (optional)"
+                      placeholder={t('contact.form.placeholders.message')}
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                     />
                   </div>
@@ -318,7 +310,7 @@ export const Contact: React.FC = () => {
                   className="w-full shadow-lg"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  {isSubmitting ? 'Sending...' : 'Schedule Free Consultation'}
+                  {isSubmitting ? 'Sending...' : t('contact.form.submit')}
                 </Button>
 
                 <p className="text-sm text-gray-500 text-center">

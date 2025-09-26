@@ -1,39 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { GraduationCap, Euro, University } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button, Container } from '../ui';
 import { motion } from 'framer-motion';
 
-const statistics = [
-  { value: '100', label: 'Acceptance Rate', suffix: '%' },
-  { value: '21', label: 'Total Scholarship', suffix: 'K €' },
-  { value: '500', label: 'Successful Students', suffix: '+' },
-];
-
-const floatingCards = [
-  {
-    id: 'universities',
-    icon: University,
-    text: 'Italian Universities',
-    position: { top: '20%', right: '10%' },
-    delay: 0,
-  },
-  {
-    id: 'stipend',
-    icon: Euro,
-    text: '€7K Annual Stipend',
-    position: { top: '50%', left: '5%' },
-    delay: 2,
-  },
-  {
-    id: 'tuition',
-    icon: GraduationCap,
-    text: 'Free Tuition',
-    position: { bottom: '20%', right: '15%' },
-    delay: 4,
-  },
-];
-
 export const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
+  const statistics = [
+    { value: '100', labelKey: 'hero.statistics.acceptanceRate', suffix: '%' },
+    { value: '21', labelKey: 'hero.statistics.totalScholarship', suffix: 'K €' },
+    { value: '500', labelKey: 'hero.statistics.successfulStudents', suffix: '+' },
+  ];
+
+  const floatingCards = [
+    {
+      id: 'universities',
+      icon: University,
+      textKey: 'hero.floatingCards.universities',
+      position: { top: '20%', right: '10%' },
+      delay: 0,
+    },
+    {
+      id: 'stipend',
+      icon: Euro,
+      textKey: 'hero.floatingCards.stipend',
+      position: { top: '50%', left: '5%' },
+      delay: 2,
+    },
+    {
+      id: 'tuition',
+      icon: GraduationCap,
+      textKey: 'hero.floatingCards.tuition',
+      position: { bottom: '20%', right: '15%' },
+      delay: 4,
+    },
+  ];
+
   const [displayedStats, setDisplayedStats] = useState(statistics.map(() => 0));
 
   useEffect(() => {
@@ -103,19 +106,19 @@ export const Hero: React.FC = () => {
             className="space-y-8"
           >
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-              Your Dream of Studying in{' '}
-              <span className="gradient-text">Italy</span> Starts Here
+              {t('hero.title')}{' '}
+              <span className="gradient-text">{t('hero.subtitle')}</span>
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed">
-              100% University Acceptance Guarantee • Tuition-Free Education • €7,000 Annual Stipend • Full Support from Application to Graduation
+              {t('hero.description')}
             </p>
 
             {/* Statistics */}
             <div className="flex flex-wrap gap-8 py-6">
               {statistics.map((stat, index) => (
                 <motion.div
-                  key={stat.label}
+                  key={stat.labelKey}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
@@ -124,7 +127,7 @@ export const Hero: React.FC = () => {
                   <div className="text-3xl lg:text-4xl font-bold text-blue-600">
                     {displayedStats[index]}{stat.suffix}
                   </div>
-                  <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
+                  <div className="text-sm text-gray-600 mt-1">{t(stat.labelKey)}</div>
                 </motion.div>
               ))}
             </div>
@@ -141,14 +144,14 @@ export const Hero: React.FC = () => {
                 onClick={handleGetStarted}
                 className="shadow-2xl"
               >
-                Start Your Journey
+                {t('hero.getStarted')}
               </Button>
               <Button
                 variant="secondary"
                 size="xl"
                 onClick={handleLearnMore}
               >
-                Learn More
+                {t('hero.learnMore')}
               </Button>
             </motion.div>
           </motion.div>
@@ -181,7 +184,7 @@ export const Hero: React.FC = () => {
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <span className="font-semibold text-gray-800 whitespace-nowrap">
-                      {card.text}
+                      {t(card.textKey)}
                     </span>
                   </div>
                 </motion.div>

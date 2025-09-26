@@ -1,5 +1,6 @@
 import React from 'react';
 import { University, Euro, FileText, Home } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Card, Container } from '../ui';
 import { motion } from 'framer-motion';
 import type { Service } from '../../types';
@@ -63,6 +64,24 @@ const iconMap = {
 };
 
 export const Services: React.FC = () => {
+  const { t } = useTranslation();
+
+  const translatedServices = services.map(service => ({
+    ...service,
+    title: service.id === 'university-applications' ? t('services.universityPlacement.title') :
+           service.id === 'scholarship-program' ? t('services.scholarshipAssistance.title') :
+           service.id === 'visa-processing' ? t('services.documentPreparation.title') :
+           service.id === 'settlement-support' ? t('services.accommodationSupport.title') : service.title,
+    description: service.id === 'university-applications' ? t('services.universityPlacement.description') :
+                 service.id === 'scholarship-program' ? t('services.scholarshipAssistance.description') :
+                 service.id === 'visa-processing' ? t('services.documentPreparation.description') :
+                 service.id === 'settlement-support' ? t('services.accommodationSupport.description') : service.description,
+    features: service.id === 'university-applications' ? t('services.universityPlacement.features', { returnObjects: true }) as string[] :
+              service.id === 'scholarship-program' ? t('services.scholarshipAssistance.features', { returnObjects: true }) as string[] :
+              service.id === 'visa-processing' ? t('services.documentPreparation.features', { returnObjects: true }) as string[] :
+              service.id === 'settlement-support' ? t('services.accommodationSupport.features', { returnObjects: true }) as string[] : service.features
+  }));
+
   return (
     <section id="services" className="section-padding bg-white">
       <Container>
@@ -74,16 +93,16 @@ export const Services: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Comprehensive Services for Your{' '}
-            <span className="gradient-text">Success</span>
+            {t('services.title')}{' '}
+            <span className="gradient-text">{t('services.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From application to graduation, we handle everything so you can focus on what matters most - your education.
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((service, index) => {
+          {translatedServices.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
 
             return (
@@ -156,15 +175,15 @@ export const Services: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="space-y-2">
                 <div className="text-3xl font-bold">100%</div>
-                <div className="text-blue-100">Success Rate</div>
+                <div className="text-blue-100">{t('services.stats.successRate')}</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold">500+</div>
-                <div className="text-blue-100">Students Placed</div>
+                <div className="text-blue-100">{t('services.stats.studentsPlaced')}</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold">24/7</div>
-                <div className="text-blue-100">Support Available</div>
+                <div className="text-blue-100">{t('services.stats.supportAvailable')}</div>
               </div>
             </div>
           </div>

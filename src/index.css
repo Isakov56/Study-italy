@@ -18,6 +18,14 @@
     line-height: 1.6;
   }
 
+  /* Emoji rendering support */
+  .emoji, .flag-emoji {
+    font-family: "Twemoji Mozilla", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color", "Android Emoji", system-ui, sans-serif !important;
+    font-feature-settings: "liga", "kern" !important;
+    font-variant-emoji: emoji !important;
+    text-rendering: optimizeQuality;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold leading-tight;
   }

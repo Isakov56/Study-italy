@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Container } from '../ui';
 import { motion } from 'framer-motion';
 import type { ProcessStep } from '../../types';
@@ -43,6 +44,34 @@ const processSteps: ProcessStep[] = [
 ];
 
 export const Process: React.FC = () => {
+  const { t } = useTranslation();
+
+  const translatedSteps = [
+    {
+      id: 'consultation',
+      step: 1,
+      titleKey: 'process.steps.consultation.title',
+      descriptionKey: 'process.steps.consultation.description'
+    },
+    {
+      id: 'application',
+      step: 2,
+      titleKey: 'process.steps.application.title',
+      descriptionKey: 'process.steps.application.description'
+    },
+    {
+      id: 'submission',
+      step: 3,
+      titleKey: 'process.steps.submission.title',
+      descriptionKey: 'process.steps.submission.description'
+    },
+    {
+      id: 'support',
+      step: 4,
+      titleKey: 'process.steps.support.title',
+      descriptionKey: 'process.steps.support.description'
+    }
+  ];
   return (
     <section id="process" className="section-padding bg-gray-50">
       <Container>
@@ -54,16 +83,16 @@ export const Process: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Your Journey to Italy in{' '}
-            <span className="gradient-text">6 Simple Steps</span>
+            {t('process.title')}{' '}
+            <span className="gradient-text">{t('process.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our proven process ensures your success every step of the way, from initial consultation to your first day at university.
+            {t('process.subtitle')}
           </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          {processSteps.map((step, index) => (
+          {translatedSteps.map((step, index) => (
             <motion.div
               key={step.id}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -88,10 +117,10 @@ export const Process: React.FC = () => {
                 {/* Content */}
                 <div className="flex-1 bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {step.title}
+                    {t(step.titleKey)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    {step.description}
+                    {t(step.descriptionKey)}
                   </p>
                 </div>
               </div>

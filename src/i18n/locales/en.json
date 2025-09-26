@@ -1,0 +1,221 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "process": "Process",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "title": "Your Gateway to Italian Universities",
+    "subtitle": "100% Acceptance Guarantee",
+    "description": "Study in Italy with guaranteed university acceptance, €7,000 annual stipend, and tuition-free education. We handle everything from application to graduation.",
+    "getStarted": "Get Started Today",
+    "learnMore": "Learn More",
+    "statistics": {
+      "acceptanceRate": "Acceptance Rate",
+      "totalScholarship": "Total Scholarship",
+      "successfulStudents": "Successful Students"
+    },
+    "floatingCards": {
+      "universities": "Italian Universities",
+      "stipend": "€7K Annual Stipend",
+      "tuition": "Free Tuition"
+    }
+  },
+  "services": {
+    "title": "Comprehensive Services for Your",
+    "titleHighlight": "Success",
+    "subtitle": "From application to graduation, we handle everything so you can focus on what matters most - your education.",
+    "universityPlacement": {
+      "title": "University Placement",
+      "description": "Get guaranteed admission to top Italian universities with our proven application process and university partnerships.",
+      "features": [
+        "100% acceptance guarantee",
+        "Top-ranked university partnerships",
+        "Personalized university matching",
+        "Application process management"
+      ]
+    },
+    "scholarshipAssistance": {
+      "title": "Scholarship Assistance",
+      "description": "Secure up to €21,000 in scholarships and financial aid to make your Italian education completely affordable.",
+      "features": [
+        "€7,000 annual living stipend",
+        "Tuition fee coverage",
+        "Merit-based scholarships",
+        "Financial planning support"
+      ]
+    },
+    "documentPreparation": {
+      "title": "Document Preparation",
+      "description": "Professional assistance with all required documents, translations, and certifications for your application.",
+      "features": [
+        "Document review and preparation",
+        "Official translations",
+        "Certification assistance",
+        "Application portfolio creation"
+      ]
+    },
+    "accommodationSupport": {
+      "title": "Accommodation Support",
+      "description": "Find safe, comfortable, and affordable housing near your university with our accommodation assistance.",
+      "features": [
+        "Student housing search",
+        "Rental agreement assistance",
+        "Location recommendations",
+        "Move-in support"
+      ]
+    },
+    "stats": {
+      "successRate": "Success Rate",
+      "studentsPlaced": "Students Placed",
+      "supportAvailable": "Support Available"
+    }
+  },
+  "pricing": {
+    "title": "Transparent Pricing for Your",
+    "titleHighlight": "Success",
+    "subtitle": "Choose the perfect package for your Italian university journey. All plans include our 100% acceptance guarantee.",
+    "packages": {
+      "standard": {
+        "name": "Standard Package",
+        "price": "€2,999",
+        "description": "Perfect for self-motivated students who need essential support for their Italian university application.",
+        "features": [
+          "University application assistance",
+          "Document preparation & review",
+          "Scholarship application support",
+          "Basic visa guidance",
+          "Email support"
+        ]
+      },
+      "premium": {
+        "name": "Premium Package",
+        "price": "€4,999",
+        "badge": "Most Popular",
+        "description": "Comprehensive support with personalized guidance and priority assistance for guaranteed success.",
+        "features": [
+          "Everything in Standard",
+          "Personalized university matching",
+          "Priority application processing",
+          "Accommodation assistance",
+          "1-on-1 consultation sessions",
+          "Phone & video support",
+          "Interview preparation"
+        ]
+      }
+    },
+    "guarantee": {
+      "title": "Our Guarantee",
+      "description": "We're so confident in our service that we offer a 100% money-back guarantee if you don't get accepted to an Italian university."
+    },
+    "valueProposition": {
+      "scholarshipValue": "Scholarship Value",
+      "scholarshipDescription": "Average scholarship amount our students receive",
+      "tuitionFees": "Tuition Fees",
+      "tuitionDescription": "Most Italian universities offer tuition-free education",
+      "roiGuarantee": "ROI Guarantee",
+      "roiDescription": "Investment returns within first year of studies"
+    }
+  },
+  "process": {
+    "title": "Simple 4-Step Process to Your",
+    "titleHighlight": "Italian Education",
+    "subtitle": "Our proven process has helped hundreds of students achieve their dreams of studying in Italy.",
+    "steps": {
+      "consultation": {
+        "title": "Free Consultation",
+        "description": "We assess your goals, academic background, and preferences to create a personalized plan for your Italian university journey."
+      },
+      "application": {
+        "title": "Application Preparation",
+        "description": "Our experts prepare all required documents, translations, and applications to ensure the highest chance of acceptance."
+      },
+      "submission": {
+        "title": "University Submission",
+        "description": "We submit your applications to carefully selected Italian universities that match your profile and goals."
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "description": "From acceptance to arrival in Italy, we provide continuous support including visa assistance and accommodation help."
+      }
+    }
+  },
+  "contact": {
+    "title": "Ready to Start Your",
+    "titleHighlight": "Italian Journey?",
+    "subtitle": "Get in touch with our education experts and take the first step towards your Italian university experience.",
+    "info": {
+      "phone": "+998 90 123 45 67",
+      "email": "info@studyitalypro.com",
+      "address": "Tashkent, Uzbekistan"
+    },
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Tell us about your study goals",
+      "submit": "Send Message",
+      "success": "Thank you! We'll contact you soon.",
+      "placeholders": {
+        "firstName": "Enter your first name",
+        "lastName": "Enter your last name",
+        "email": "Enter your email address",
+        "phone": "Enter your phone number",
+        "message": "Tell us about your academic background and study goals..."
+      }
+    },
+    "consultation": {
+      "title": "Why Choose Our Consultation?",
+      "benefits": [
+        "100% free initial consultation",
+        "Expert guidance from certified consultants",
+        "Personalized study plan for your goals",
+        "No obligation or pressure to commit"
+      ]
+    },
+    "education": {
+      "select": "Select Education Level",
+      "highSchool": "High School",
+      "bachelor": "Bachelor's Degree",
+      "master": "Master's Degree",
+      "phd": "PhD"
+    },
+    "office": "Office"
+  },
+  "footer": {
+    "description": "StudyItaly Pro is your trusted partner for Italian university admissions. We guarantee your acceptance and provide comprehensive support throughout your journey.",
+    "links": {
+      "company": {
+        "title": "Company",
+        "about": "About Us",
+        "services": "Services",
+        "pricing": "Pricing",
+        "contact": "Contact"
+      },
+      "services": {
+        "title": "Services",
+        "universityPlacement": "University Placement",
+        "scholarships": "Scholarships",
+        "visaSupport": "Visa Support",
+        "accommodation": "Accommodation"
+      },
+      "support": {
+        "title": "Support",
+        "faq": "FAQ",
+        "help": "Help Center",
+        "documentation": "Documentation",
+        "privacy": "Privacy Policy"
+      }
+    },
+    "stats": {
+      "successRate": "Success Rate",
+      "students": "Students Helped",
+      "scholarship": "Avg Scholarship"
+    },
+    "copyright": "© 2024 StudyItaly Pro. All rights reserved."
+  }
+}

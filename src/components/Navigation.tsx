@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { GraduationCap, Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button, Container } from './ui';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { cn } from '../utils/cn';
 
 const navigationItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Contact', href: '#contact' },
+  { labelKey: 'nav.home', href: '#home' },
+  { labelKey: 'nav.services', href: '#services' },
+  { labelKey: 'nav.process', href: '#process' },
+  { labelKey: 'nav.pricing', href: '#pricing' },
+  { labelKey: 'nav.contact', href: '#contact' },
 ];
 
 export const Navigation: React.FC = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -61,24 +64,25 @@ export const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
               <button
-                key={item.label}
+                key={item.labelKey}
                 onClick={() => handleNavClick(item.href)}
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
               >
-                {item.label}
+                {t(item.labelKey)}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
               </button>
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Language Switcher & CTA Button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
             <Button
               onClick={() => handleNavClick('#contact')}
               size="lg"
               className="shadow-lg"
             >
-              Get Started
+              {t('nav.getStarted')}
             </Button>
           </div>
 
@@ -97,20 +101,23 @@ export const Navigation: React.FC = () => {
             <div className="py-4 space-y-2">
               {navigationItems.map((item) => (
                 <button
-                  key={item.label}
+                  key={item.labelKey}
                   onClick={() => handleNavClick(item.href)}
                   className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-blue-600 font-medium transition-colors duration-200"
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </button>
               ))}
-              <div className="px-4 pt-2">
+              <div className="px-4 pt-2 space-y-3">
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
+                </div>
                 <Button
                   onClick={() => handleNavClick('#contact')}
                   className="w-full"
                   size="lg"
                 >
-                  Get Started
+                  {t('nav.getStarted')}
                 </Button>
               </div>
             </div>

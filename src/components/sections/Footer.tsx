@@ -1,23 +1,25 @@
 import React from 'react';
 import { GraduationCap, Phone, Mail, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Container } from '../ui';
 
-const footerLinks = {
-  services: [
-    { label: 'University Applications', href: '#services' },
-    { label: 'Scholarship Programs', href: '#services' },
-    { label: 'Visa Processing', href: '#services' },
-    { label: 'Settlement Support', href: '#services' },
-  ],
-  quickLinks: [
-    { label: 'Home', href: '#home' },
-    { label: 'Process', href: '#process' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Contact', href: '#contact' },
-  ],
-};
-
 export const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
+  const footerLinks = {
+    services: [
+      { labelKey: 'footer.links.services.universityPlacement', href: '#services' },
+      { labelKey: 'footer.links.services.scholarships', href: '#services' },
+      { labelKey: 'footer.links.services.visaSupport', href: '#services' },
+      { labelKey: 'footer.links.services.accommodation', href: '#services' },
+    ],
+    quickLinks: [
+      { labelKey: 'nav.home', href: '#home' },
+      { labelKey: 'nav.process', href: '#process' },
+      { labelKey: 'nav.pricing', href: '#pricing' },
+      { labelKey: 'nav.contact', href: '#contact' },
+    ],
+  };
   const currentYear = new Date().getFullYear();
 
   const handleLinkClick = (href: string) => {
@@ -45,39 +47,39 @@ export const Footer: React.FC = () => {
                 <span className="text-2xl font-bold">StudyItaly Pro</span>
               </div>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Your trusted partner for studying in Italy with guaranteed success and comprehensive support from application to graduation.
+                {t('footer.description')}
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-400">
                   <Phone className="w-4 h-4 text-blue-400" />
                   <a href="tel:+998901234567" className="hover:text-white transition-colors">
-                    +998 90 123 45 67
+                    {t('contact.info.phone')}
                   </a>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-400">
                   <Mail className="w-4 h-4 text-blue-400" />
                   <a href="mailto:info@studyitalypro.com" className="hover:text-white transition-colors">
-                    info@studyitalypro.com
+                    {t('contact.info.email')}
                   </a>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-400">
                   <MapPin className="w-4 h-4 text-blue-400" />
-                  <span>Tashkent, Uzbekistan</span>
+                  <span>{t('contact.info.address')}</span>
                 </div>
               </div>
             </div>
 
             {/* Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-6">Our Services</h4>
+              <h4 className="text-lg font-semibold mb-6">{t('footer.links.services.title')}</h4>
               <ul className="space-y-3">
                 {footerLinks.services.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.labelKey}>
                     <button
                       onClick={() => handleLinkClick(link.href)}
                       className="text-gray-400 hover:text-white transition-colors text-left"
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </button>
                   </li>
                 ))}
@@ -86,15 +88,15 @@ export const Footer: React.FC = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+              <h4 className="text-lg font-semibold mb-6">{t('footer.links.company.title')}</h4>
               <ul className="space-y-3">
                 {footerLinks.quickLinks.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.labelKey}>
                     <button
                       onClick={() => handleLinkClick(link.href)}
                       className="text-gray-400 hover:text-white transition-colors text-left"
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </button>
                   </li>
                 ))}
@@ -103,19 +105,19 @@ export const Footer: React.FC = () => {
 
             {/* Success Stats */}
             <div>
-              <h4 className="text-lg font-semibold mb-6">Our Success</h4>
+              <h4 className="text-lg font-semibold mb-6">{t('footer.links.support.title')}</h4>
               <div className="space-y-4">
                 <div className="bg-gray-800 rounded-lg p-4">
                   <div className="text-2xl font-bold text-blue-400 mb-1">100%</div>
-                  <div className="text-sm text-gray-400">University Acceptance Rate</div>
+                  <div className="text-sm text-gray-400">{t('footer.stats.successRate')}</div>
                 </div>
                 <div className="bg-gray-800 rounded-lg p-4">
                   <div className="text-2xl font-bold text-blue-400 mb-1">500+</div>
-                  <div className="text-sm text-gray-400">Students Successfully Placed</div>
+                  <div className="text-sm text-gray-400">{t('footer.stats.students')}</div>
                 </div>
                 <div className="bg-gray-800 rounded-lg p-4">
                   <div className="text-2xl font-bold text-blue-400 mb-1">€21K</div>
-                  <div className="text-sm text-gray-400">Average Scholarship Value</div>
+                  <div className="text-sm text-gray-400">{t('footer.stats.scholarship')}</div>
                 </div>
               </div>
             </div>
@@ -126,17 +128,17 @@ export const Footer: React.FC = () => {
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {currentYear} StudyItaly Pro. All rights reserved.
+              {t('footer.copyright')}
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
               <button className="hover:text-white transition-colors">
-                Privacy Policy
+                {t('footer.links.support.privacy')}
               </button>
               <button className="hover:text-white transition-colors">
-                Terms of Service
+                {t('footer.links.support.help')}
               </button>
               <button className="hover:text-white transition-colors">
-                Cookie Policy
+                {t('footer.links.support.documentation')}
               </button>
             </div>
           </div>

@@ -1,22 +1,12 @@
 import React from 'react';
 import { Check, Shield } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button, Card, Container } from '../ui';
 import { motion } from 'framer-motion';
 
-const includedFeatures = [
-  '100% university acceptance guarantee',
-  'Government scholarship application',
-  'Complete visa support',
-  'Settlement assistance in Italy',
-  'Document processing and preparation',
-  '24/7 support throughout the process',
-  'Multiple university applications',
-  'Residence permit assistance',
-  'Tax code acquisition support',
-  'Housing assistance in Italy',
-];
 
 export const Pricing: React.FC = () => {
+  const { t } = useTranslation();
   const handleGetStarted = () => {
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
@@ -39,11 +29,11 @@ export const Pricing: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Transparent{' '}
-            <span className="gradient-text">Pricing Structure</span>
+            {t('pricing.title')}{' '}
+            <span className="gradient-text">{t('pricing.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Invest in your future with our affordable payment plan. Pay only when you succeed.
+            {t('pricing.subtitle')}
           </p>
         </motion.div>
 
@@ -60,10 +50,10 @@ export const Pricing: React.FC = () => {
                   <Shield className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                  Complete Success Package
+                  {t('pricing.packages.premium.name')}
                 </h3>
                 <p className="text-gray-600">
-                  Everything you need for studying in Italy
+                  {t('pricing.packages.premium.description')}
                 </p>
               </div>
 
@@ -77,7 +67,7 @@ export const Pricing: React.FC = () => {
                           $1,000
                         </div>
                         <div className="text-gray-600 text-sm">
-                          Paid only after visa approval
+                          {t('pricing.packages.standard.price')}
                         </div>
                       </div>
 
@@ -88,7 +78,7 @@ export const Pricing: React.FC = () => {
                           3.5M UZS
                         </div>
                         <div className="text-gray-600 text-sm">
-                          Non-refundable agency fee
+                          {t('pricing.packages.premium.price')}
                         </div>
                       </div>
                     </div>
@@ -96,19 +86,19 @@ export const Pricing: React.FC = () => {
 
                   <div className="space-y-4">
                     <h4 className="text-xl font-bold text-gray-900">
-                      Payment Terms:
+                      {t('pricing.guarantee.title')}
                     </h4>
                     <div className="space-y-3 text-gray-600">
                       <div className="flex items-start space-x-3">
                         <Check className="w-5 h-5 text-secondary-500 mt-0.5 flex-shrink-0" />
                         <div>
-                          <strong className="text-gray-900">$1,000:</strong> Only charged upon successful visa approval - no risk to you
+                          {t('pricing.guarantee.description')}
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <Check className="w-5 h-5 text-secondary-500 mt-0.5 flex-shrink-0" />
                         <div>
-                          <strong className="text-gray-900">3.5M UZS:</strong> Non-refundable fee to secure our premium services
+                          {t('pricing.guarantee.description')}
                         </div>
                       </div>
                     </div>
@@ -119,10 +109,10 @@ export const Pricing: React.FC = () => {
               {/* What's Included */}
               <div className="mb-8">
                 <h4 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                  What's Included:
+                  {t('pricing.packages.premium.features.0')}
                 </h4>
                 <div className="grid md:grid-cols-2 gap-4">
-                  {includedFeatures.map((feature, index) => (
+                  {(t('pricing.packages.premium.features', { returnObjects: true }) as string[]).map((feature, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
@@ -148,10 +138,10 @@ export const Pricing: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-gray-900 mb-1">
-                      100% Success Guarantee
+                      {t('pricing.guarantee.title')}
                     </h4>
                     <p className="text-gray-600 text-sm">
-                      We guarantee acceptance to at least one Italian university or full refund of the $1,000 visa fee.
+                      {t('pricing.guarantee.description')}
                     </p>
                   </div>
                 </div>
@@ -164,10 +154,10 @@ export const Pricing: React.FC = () => {
                   onClick={handleGetStarted}
                   className="shadow-2xl text-lg px-12 py-4"
                 >
-                  Get Started Today
+                  {t('hero.getStarted')}
                 </Button>
                 <p className="text-sm text-gray-500 mt-4">
-                  Free consultation • No hidden fees • Risk-free guarantee
+                  {t('pricing.guarantee.description')}
                 </p>
               </div>
             </Card>
@@ -184,28 +174,28 @@ export const Pricing: React.FC = () => {
         >
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">
-              Why Our Pricing Makes Sense
+              {t('pricing.valueProposition.scholarshipValue')}
             </h3>
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
                 <div className="text-3xl font-bold mb-2">€21,000</div>
-                <div className="text-blue-100">Scholarship Value</div>
+                <div className="text-blue-100">{t('pricing.valueProposition.scholarshipValue')}</div>
                 <div className="text-sm text-blue-200 mt-1">
-                  Far exceeds our service fee
+                  {t('pricing.valueProposition.scholarshipDescription')}
                 </div>
               </div>
               <div>
                 <div className="text-3xl font-bold mb-2">$0</div>
-                <div className="text-blue-100">Tuition Fees</div>
+                <div className="text-blue-100">{t('pricing.valueProposition.tuitionFees')}</div>
                 <div className="text-sm text-blue-200 mt-1">
-                  Save thousands on education
+                  {t('pricing.valueProposition.tuitionDescription')}
                 </div>
               </div>
               <div>
                 <div className="text-3xl font-bold mb-2">100%</div>
-                <div className="text-blue-100">ROI Guarantee</div>
+                <div className="text-blue-100">{t('pricing.valueProposition.roiGuarantee')}</div>
                 <div className="text-sm text-blue-200 mt-1">
-                  Your investment is protected
+                  {t('pricing.valueProposition.roiDescription')}
                 </div>
               </div>
             </div>
